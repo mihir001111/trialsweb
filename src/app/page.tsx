@@ -31,7 +31,7 @@ export default function Home() {
     setIsTyping(true);
 
     // Bot response
-    const botResponse = "Ohoo it's just a demo doctor! 😊 Please sign up on the last slide to unlock the full experience. This is where you'll connect with verified medical professionals, share insights, discuss challenging cases, and build meaningful relationships with colleagues who truly understand your journey.";
+    const botResponse = "Ohoo it's just a demo doctor! Please sign up on the last slide to unlock the full experience. This is where you'll connect with verified medical professionals, share insights, discuss challenging cases, and build meaningful relationships with colleagues who truly understand your journey.";
 
     // Simulate typing delay
     setTimeout(() => {
@@ -60,6 +60,27 @@ export default function Home() {
 
   return (
     <>
+      {/* Small Landscape Orientation Prompt */}
+      <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 rounded-full bg-black/80 px-3 py-2 text-white shadow-lg md:hidden portrait:flex landscape:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="h-4 w-4 animate-pulse"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+          />
+        </svg>
+        <p className="text-[0.6rem] font-light tracking-wide">
+          Rotate for better experience
+        </p>
+      </div>
+
       <FloatingElements />
       
       {/* Fixed Join Button */}
@@ -258,62 +279,120 @@ export default function Home() {
           </section>
 
           {/* Section 5: Sample Post Mockup */}
-          <section className="w-screen h-full snap-center flex items-center justify-center relative overflow-hidden px-3 sm:px-4 md:px-8 lg:px-16">
-            <motion.div
-              className="max-w-2xl w-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+        <section className="w-screen h-full snap-center flex items-center justify-center relative overflow-hidden px-3 sm:px-4 md:px-8 lg:px-16 bg-blue-500">
+          <motion.div
+            className="max-w-2xl w-full"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <motion.p
+              className="text-[0.5rem] sm:text-[0.6rem] md:text-xs uppercase tracking-[0.3em] font-light mb-4 sm:mb-6 md:mb-8 text-white/70 text-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <motion.p
-                className="text-[0.5rem] sm:text-[0.6rem] md:text-xs uppercase tracking-[0.3em] font-light mb-4 sm:mb-6 md:mb-8 text-black/50 text-center"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                Sample Post
-              </motion.p>
-              
-              <motion.div
-                className="bg-gradient-to-b from-cyan-400 to-blue-600 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                {/* White card container */}
-                <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-6 md:p-8">
-                  {/* Post Header */}
-                  <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
-                    <img 
-                      src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/TwitterPost_03-1760873474291.png"
-                      alt="Dr. Sara Williamson"
-                      className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full object-cover flex-shrink-0"
-                    />
-                    <div>
-                      <p className="text-base sm:text-lg md:text-xl font-bold text-black">Dr. Sara Williamson</p>
-                      <p className="text-xs sm:text-sm md:text-base text-black/60">@dr.sara</p>
-                    </div>
-                  </div>
-                  
-                  {/* Post Content */}
-                  <p className="text-sm sm:text-base md:text-lg font-normal leading-relaxed mb-4 sm:mb-5 text-black">
-                    Starting a small research 🤔 on post-COVID fatigue. Looking for fellow doctors 
-                    to collaborate and share insights. DM if interested.
-                  </p>
-                  
-                  {/* Post Metadata */}
-                  <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-black/60 pt-3 sm:pt-4 border-t border-black/10">
-                    <span>12:30 PM · September 21, 2025</span>
-                    <span>·</span>
-                    <span className="text-blue-600 font-medium">Internal Medicine</span>
+              Post by @dr.sara
+            </motion.p>
+            
+            <motion.div
+              className="shadow-2xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              {/* White card container */}
+              <div className="bg-white rounded-[10px] p-5 sm:p-6 md:p-8">
+                {/* Post Header */}
+                <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
+                  <img 
+                    src="https://res.cloudinary.com/dn1hjjczy/image/upload/v1760897932/divaris-shirichena-EVcTjiaq4NE-unsplash_1_1_defsog.png"
+                    alt="Dr. Sara Williamson"
+                    className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full object-cover flex-shrink-0"
+                  />
+                  <div>
+                    <p className="text-xs sm:text-sm md:text-base font-normal text-black">Dr. Sara Williamson</p>
+                    <p className="text-xs sm:text-sm md:text-base text-black/60">@dr.sara</p>
                   </div>
                 </div>
-              </motion.div>
+                
+                {/* Post Content */}
+                <p className="text-xs sm:text-sm md:text-base font-normal leading-relaxed mb-3 sm:mb-4 text-black">
+                  Starting a small research 🤔 on post-COVID fatigue. Looking for fellow doctors 
+                  to collaborate and share insights. DM if interested.
+                </p>
+                
+                {/* Post Metadata */}
+                <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-black/60 pt-3 sm:pt-4 border-t border-black/10">
+                  <span>12:30 PM · September 21, 2025</span>
+                  <span>·</span>
+                  <span className="text-blue-600 font-medium">Internal Medicine</span>
+                </div>
+              </div>
             </motion.div>
-          </section>
+          </motion.div>
+        </section>
+
+        <section className="w-screen h-full snap-center flex items-center justify-center relative overflow-hidden px-3 sm:px-4 md:px-8 lg:px-16 bg-orange-500">
+          <motion.div
+            className="max-w-2xl w-full"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <motion.p
+              className="text-[0.5rem] sm:text-[0.6rem] md:text-xs uppercase tracking-[0.3em] font-light mb-4 sm:mb-6 md:mb-8 text-white/70 text-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              Post by @dr.jaiswal
+            </motion.p>
+            
+            <motion.div
+              className="shadow-2xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              {/* White card container */}
+              <div className="bg-white rounded-[10px] p-5 sm:p-6 md:p-8">
+                {/* Post Header */}
+                <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
+                  <img 
+                    src="https://res.cloudinary.com/dn1hjjczy/image/upload/v1760897393/ashkan-forouzani-DPEPYPBZpB8-unsplash_gpugad.jpg"
+                    alt="Dr. Ankesh Jaiswal"
+                    className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full object-cover flex-shrink-0"
+                  />
+                  <div>
+                    <p className="text-xs sm:text-sm md:text-base font-normal text-black">Dr. Ankesh Jaiswal</p>
+                    <p className="text-[10px] sm:text-xs md:text-sm text-black/60"
+>@dr.jaiswal</p>
+                  </div>
+                </div>
+                
+                {/* Post Content */}
+                <p className="text-xs sm:text-sm md:text-base font-normal leading-relaxed mb-3 sm:mb-4 text-black">
+                  “Love when patients say ‘Google said it’s cancer.’ <br />
+Cool, tell Google to sign your prescription then.”💁🏻‍♂️
+                </p>
+                
+                {/* Post Metadata */}
+                <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-black/60 pt-3 sm:pt-4 border-t border-black/10">
+                  <span>2:43 PM · October 11, 2025</span>
+                  <span>·</span>
+                  <span className="text-blue-600 font-medium">Casual</span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </section>
 
           {/* Section 6: Community Stats */}
           <section className="w-screen h-full snap-center flex items-center justify-start relative overflow-hidden px-3 sm:px-4 md:px-8 lg:px-16">
@@ -541,104 +620,34 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <motion.h2
-                className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-none tracking-tight mb-3 sm:mb-4 md:mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                Your trust,{" "}
-                <span className="gradient-text font-bold">our foundation</span>
-              </motion.h2>
-              
-              <motion.p
-                className="text-xs sm:text-sm md:text-base lg:text-lg font-light text-black/70 leading-relaxed max-w-xl mx-auto px-2"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                Built with military-grade encryption. HIPAA-compliant from day one. 
-                Your conversations stay between you and your colleagues—always.
-              </motion.p>
+  className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-none tracking-tight mb-3 sm:mb-4 md:mb-6"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.1 }}
+  viewport={{ once: true }}
+>
+  Turn your cases into{" "}
+  <span className="gradient-text font-bold">recognition</span>
+</motion.h2>
+
+<motion.p
+  className="text-xs sm:text-sm md:text-base lg:text-lg font-light text-black/70 leading-relaxed max-w-xl mx-auto px-2"
+  initial={{ opacity: 0, y: 10 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.3 }}
+  viewport={{ once: true }}
+>
+  Every post is reviewed by fellow doctors and backed by peer approval.  
+  Build visibility, credibility, and a name that stands out in your specialty.
+</motion.p>
+
             </motion.div>
           </section>
 
           {/* Section 10: App Mockup */}
-          <section className="w-screen h-full snap-center flex items-center justify-center relative overflow-hidden px-3 sm:px-4 md:px-8 lg:px-16">
-            <motion.div
-              className="max-w-4xl w-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <motion.p
-                className="text-[0.5rem] sm:text-[0.6rem] md:text-xs uppercase tracking-[0.3em] font-light mb-4 sm:mb-6 md:mb-8 text-black/50 text-center"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                Mobile App
-              </motion.p>
-              
-              <motion.div
-                className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                {/* Phone Mockup */}
-                <div className="relative w-48 sm:w-56 md:w-64 lg:w-72">
-                  <div className="bg-white/40 backdrop-blur-sm border-4 sm:border-[5px] border-black/20 rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-2xl aspect-[9/19]">
-                    {/* Status Bar */}
-                    <div className="bg-black/5 h-6 sm:h-8 flex items-center justify-between px-4 sm:px-6">
-                      <div className="text-[0.5rem] sm:text-[0.6rem] font-light">9:41</div>
-                      <div className="flex gap-1">
-                        <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-gradient-to-br from-red-500 to-orange-500" />
-                      </div>
-                    </div>
-                    
-                    {/* App Content */}
-                    <div className="p-3 sm:p-4 md:p-6 space-y-3 sm:space-y-4">
-                      {/* Feed Item 1 */}
-                      <div className="bg-white/60 rounded-xl p-2 sm:p-3">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full gradient-text bg-gradient-to-br from-blue-500 to-red-500" />
-                          <div>
-                            <p className="text-[0.5rem] sm:text-[0.6rem] font-semibold">Dr. Sarah Chen</p>
-                            <p className="text-[0.4rem] sm:text-[0.5rem] text-black/60">Cardiology</p>
-                          </div>
-                        </div>
-                        <p className="text-[0.5rem] sm:text-[0.6rem] font-light leading-relaxed">
-                          Interesting case discussion on TAVR procedures...
-                        </p>
-                      </div>
-                      
-                      {/* Feed Item 2 */}
-                      <div className="bg-white/60 rounded-xl p-2 sm:p-3">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full gradient-text bg-gradient-to-br from-orange-500 to-blue-500" />
-                          <div>
-                            <p className="text-[0.5rem] sm:text-[0.6rem] font-semibold">Dr. James Wilson</p>
-                            <p className="text-[0.4rem] sm:text-[0.5rem] text-black/60">Neurology</p>
-                          </div>
-                        </div>
-                        <p className="text-[0.5rem] sm:text-[0.6rem] font-light leading-relaxed">
-                          New research findings on cognitive decline...
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Phone Notch */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-28 md:w-32 h-5 sm:h-6 md:h-7 bg-black/20 rounded-b-2xl" />
-                </div>
-              </motion.div>
-            </motion.div>
-          </section>
+
+
+          
 
           {/* Section 11: Vision Statement */}
           <section className="w-screen h-full snap-center flex items-center justify-start relative overflow-hidden px-3 sm:px-4 md:px-8 lg:px-16">
@@ -731,7 +740,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <p className="text-[0.5rem] sm:text-[0.6rem] md:text-xs font-light text-black/40 tracking-wider">
-                After Trials © 2024
+                After Trials © 2025
               </p>
             </motion.div>
           </section>
